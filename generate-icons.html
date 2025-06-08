@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator for LiveBarn Player Plus</title>
+    <style>
+        .icon-container {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+        }
+        .icon-container canvas {
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background: #007cba;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #005a8b;
+        }
+    </style>
+</head>
+<body>
+    <h1>LiveBarn Player Plus - Icon Generator</h1>
+    <p>Right-click on each icon and select "Save image as..." to download the PNG files.</p>
+    
+    <div class="icon-container">
+        <h3>16x16 Icon</h3>
+        <canvas id="icon16" width="16" height="16"></canvas>
+        <br>
+        <button onclick="downloadIcon('icon16', 'icon16.png')">Download icon16.png</button>
+    </div>
+    
+    <div class="icon-container">
+        <h3>48x48 Icon</h3>
+        <canvas id="icon48" width="48" height="48"></canvas>
+        <br>
+        <button onclick="downloadIcon('icon48', 'icon48.png')">Download icon48.png</button>
+    </div>
+    
+    <div class="icon-container">
+        <h3>128x128 Icon</h3>
+        <canvas id="icon128" width="128" height="128"></canvas>
+        <br>
+        <button onclick="downloadIcon('icon128', 'icon128.png')">Download icon128.png</button>
+    </div>
+
+    <script>
+        function drawIcon16(ctx) {
+            // Background
+            ctx.fillStyle = '#1a1a1a';
+            ctx.fillRect(0, 0, 16, 16);
+            
+            // WiFi signal arcs
+            ctx.strokeStyle = '#00d4ff';
+            ctx.lineWidth = 1;
+            ctx.lineCap = 'round';
+            
+            // Outer arc
+            ctx.globalAlpha = 0.6;
+            ctx.beginPath();
+            ctx.arc(8, 8, 3, Math.PI, 0, false);
+            ctx.stroke();
+            
+            // Inner arc
+            ctx.globalAlpha = 0.9;
+            ctx.beginPath();
+            ctx.arc(8, 8, 1.5, Math.PI, 0, false);
+            ctx.stroke();
+            
+            // Center dot
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = '#00d4ff';
+            ctx.beginPath();
+            ctx.arc(8, 8, 1, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Play button
+            ctx.globalAlpha = 0.8;
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.moveTo(6, 6);
+            ctx.lineTo(6, 10);
+            ctx.lineTo(10, 8);
+            ctx.closePath();
+            ctx.fill();
+            ctx.globalAlpha = 1;
+        }
+        
+        function drawIcon48(ctx) {
+            // Background
+            ctx.fillStyle = '#1a1a1a';
+            ctx.fillRect(0, 0, 48, 48);
+            
+            // WiFi signal arcs
+            ctx.strokeStyle = '#00d4ff';
+            ctx.lineWidth = 2.5;
+            ctx.lineCap = 'round';
+            
+            // Outer arc
+            ctx.globalAlpha = 0.5;
+            ctx.beginPath();
+            ctx.arc(24, 24, 10, Math.PI, 0, false);
+            ctx.stroke();
+            
+            // Middle arc
+            ctx.globalAlpha = 0.7;
+            ctx.beginPath();
+            ctx.arc(24, 24, 7, Math.PI, 0, false);
+            ctx.stroke();
+            
+            // Inner arc
+            ctx.globalAlpha = 0.9;
+            ctx.beginPath();
+            ctx.arc(24, 24, 4, Math.PI, 0, false);
+            ctx.stroke();
+            
+            // Center dot
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = '#00d4ff';
+            ctx.beginPath();
+            ctx.arc(24, 24, 2.5, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Play button circle
+            ctx.globalAlpha = 0.15;
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(24, 24, 8, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 1;
+            ctx.globalAlpha = 1;
+            ctx.stroke();
+            
+            // Play triangle
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.moveTo(21, 20);
+            ctx.lineTo(21, 28);
+            ctx.lineTo(28, 24);
+            ctx.closePath();
+            ctx.fill();
+        }
+        
+        function drawIcon128(ctx) {
+            // Background circle
+            ctx.fillStyle = '#1a1a1a';
+            ctx.beginPath();
+            ctx.arc(64, 64, 64, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // WiFi signal arcs
+            ctx.strokeStyle = '#00d4ff';
+            ctx.lineWidth = 6;
+            ctx.lineCap = 'round';
+            
+            // Outer arc
+            ctx.globalAlpha = 0.4;
+            ctx.beginPath();
+            ctx.arc(64, 64, 32, Math.PI, 0, false);
+            ctx.stroke();
+            
+            // Middle arc
+            ctx.globalAlpha = 0.6;
+            ctx.beginPath();
+            ctx.arc(64, 64, 24, Math.PI, 0, false);
+            ctx.stroke();
+            
+            // Inner arc
+            ctx.globalAlpha = 0.8;
+            ctx.beginPath();
+            ctx.arc(64, 64, 16, Math.PI, 0, false);
+            ctx.stroke();
+            
+            // Center dot
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = '#00d4ff';
+            ctx.beginPath();
+            ctx.arc(64, 64, 6, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Play button circle
+            ctx.globalAlpha = 0.1;
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(64, 64, 20, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 2;
+            ctx.globalAlpha = 1;
+            ctx.stroke();
+            
+            // Play triangle
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.moveTo(58, 56);
+            ctx.lineTo(58, 72);
+            ctx.lineTo(72, 64);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Speed indicator
+            ctx.fillStyle = '#00d4ff';
+            ctx.font = 'bold 14px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('x', 90, 42);
+        }
+        
+        function downloadIcon(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Draw all icons when page loads
+        window.onload = function() {
+            const ctx16 = document.getElementById('icon16').getContext('2d');
+            const ctx48 = document.getElementById('icon48').getContext('2d');
+            const ctx128 = document.getElementById('icon128').getContext('2d');
+            
+            drawIcon16(ctx16);
+            drawIcon48(ctx48);
+            drawIcon128(ctx128);
+        };
+    </script>
+</body>
+</html>

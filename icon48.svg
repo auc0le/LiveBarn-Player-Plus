@@ -1,0 +1,23 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="48" height="48" rx="8" fill="#1a1a1a"/>
+  
+  <!-- WiFi/Radio signal arcs -->
+  <g stroke="#00d4ff" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <!-- Outer arc -->
+    <path d="M 14 24 A 10 10 0 0 1 34 24" opacity="0.5"/>
+    <!-- Middle arc -->
+    <path d="M 17 24 A 7 7 0 0 1 31 24" opacity="0.7"/>
+    <!-- Inner arc -->
+    <path d="M 20 24 A 4 4 0 0 1 28 24" opacity="0.9"/>
+  </g>
+  
+  <!-- Center dot -->
+  <circle cx="24" cy="24" r="2.5" fill="#00d4ff"/>
+  
+  <!-- Play button -->
+  <g transform="translate(24, 24)">
+    <circle r="8" fill="rgba(255,255,255,0.15)" stroke="#ffffff" stroke-width="1"/>
+    <polygon points="-3,-4 -3,4 4,0" fill="#ffffff"/>
+  </g>
+</svg>

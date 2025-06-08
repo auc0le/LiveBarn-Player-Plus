@@ -1,0 +1,28 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="64" fill="#1a1a1a"/>
+  
+  <!-- WiFi/Radio signal arcs -->
+  <g stroke="#00d4ff" stroke-width="6" fill="none" stroke-linecap="round">
+    <!-- Outer arc -->
+    <path d="M 32 64 A 32 32 0 0 1 96 64" opacity="0.4"/>
+    <!-- Middle arc -->
+    <path d="M 40 64 A 24 24 0 0 1 88 64" opacity="0.6"/>
+    <!-- Inner arc -->
+    <path d="M 48 64 A 16 16 0 0 1 80 64" opacity="0.8"/>
+  </g>
+  
+  <!-- Center dot/transmitter -->
+  <circle cx="64" cy="64" r="6" fill="#00d4ff"/>
+  
+  <!-- Play button overlay to indicate video functionality -->
+  <g transform="translate(64, 64)">
+    <circle r="20" fill="rgba(255,255,255,0.1)" stroke="#ffffff" stroke-width="2"/>
+    <polygon points="-6,-8 -6,8 8,0" fill="#ffffff"/>
+  </g>
+  
+  <!-- Speed indicator (small "x" to represent speed control) -->
+  <g transform="translate(90, 38)" fill="#00d4ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">
+    <text x="0" y="0" text-anchor="middle">x</text>
+  </g>
+</svg>

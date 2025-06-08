@@ -1,0 +1,16 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="16" height="16" rx="2" fill="#1a1a1a"/>
+  
+  <!-- Simplified WiFi signal -->
+  <g stroke="#00d4ff" stroke-width="1" fill="none" stroke-linecap="round">
+    <path d="M 5 8 A 3 3 0 0 1 11 8" opacity="0.6"/>
+    <path d="M 6.5 8 A 1.5 1.5 0 0 1 9.5 8" opacity="0.9"/>
+  </g>
+  
+  <!-- Center dot -->
+  <circle cx="8" cy="8" r="1" fill="#00d4ff"/>
+  
+  <!-- Simple play indicator -->
+  <polygon points="6,6 6,10 10,8" fill="#ffffff" opacity="0.8"/>
+</svg>
