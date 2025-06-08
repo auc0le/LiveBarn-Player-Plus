@@ -1,6 +1,6 @@
 @echo off
 echo Packaging LiveBarn Pro Controls Firefox extension...
-set EXTENSION_NAME=livebarn-pro-controls
+set EXTENSION_NAME=LiveBarn-Enhanced-Player
 set VERSION=1.0
 set OUTPUT_FILE=%EXTENSION_NAME%-v%VERSION%.xpi
 

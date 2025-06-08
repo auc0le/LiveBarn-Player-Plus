@@ -1,4 +1,4 @@
-# LiveBarn Pro Controls
+# LiveBarn Enhanced Player
 
 A Firefox extension that enhances LiveBarn's video player with professional playback controls.
 

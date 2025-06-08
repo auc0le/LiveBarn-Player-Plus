@@ -250,7 +250,7 @@
         
         // Check if this is the forward button to create custom SVG
         if (title.includes('Forward')) {
-            btn.innerHTML = createForwardButtonSVG();
+            btn.appendChild(createForwardButtonSVG());
         } else {
             btn.textContent = text;
         }
@@ -312,18 +312,45 @@
     }
     
     function createForwardButtonSVG() {
-        // Use the user's custom forward SVG
-        return `
-            <svg class="jw-svg-icon jw-svg-icon-forward" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" focusable="false" style="width: 24px; height: 24px;">
-                <g transform="translate(-1052.3457,87.44336)">
-                    <g transform="translate(1434.3945,-88.34375)">
-                        <path style="fill:currentColor;fill-rule:nonzero;stroke:none;" d="m 257.87305,596.64453 c -6.3189,-0.60103 -12.71382,1.60585 -17.34766,6.25586 l -58.5,58.5 30.59961,30.60156 21.59961,-21.60156 v 229.5 l 43.20117,0.45117 V 618.20117 c 0.0215,-8.75286 -5.2427,-16.65336 -13.32812,-20.00586 -2.02136,-0.83812 -4.11831,-1.35043 -6.22461,-1.55078 z"/>
-                        <path style="fill:currentColor;fill-rule:nonzero;stroke:none;" d="m 429.52539,596.15039 c -32.92103,1.36426 -62.90715,19.323 -79.65039,47.70117 -38.70038,64.05862 -38.70038,144.29099 0,208.34961 16.74324,28.37817 46.72936,46.33495 79.65039,47.69922 32.92105,-1.36427 62.90715,-19.32105 79.65039,-47.69922 38.7004,-64.05863 38.7004,-144.29099 0,-208.34961 -16.74324,-28.37817 -46.72934,-46.33691 -79.65039,-47.70117 z m 0,43.20117 c 35.1,0 64.79883,49.49922 64.79883,108.44922 0,58.95 -29.24883,108.45117 -64.79883,108.45117 -35.1,0 -64.80078,-49.50117 -64.80078,-108.45117 0,-58.95 29.70078,-108.44922 64.80078,-108.44922 z"/>
-                    </g>
-                    <path style="fill:currentColor;fill-rule:nonzero;stroke:none;" d="m 1801.5273,91.056641 c -9.58,1.415039 -15.9082,10.343749 -15.9082,25.249999 v 86.84961 h -585.4492 c -12.1031,0.17874 -21.8721,9.94772 -22.0508,22.05078 v 563.84961 c 0.162,11.8615 9.7382,21.43741 21.5997,21.59961 h 282.1503 V 723.80664 H 1264.9688 V 290.00781 h 520.6503 v 86.84961 c 0,23.85 16.2,32.39961 36,19.34961 l 188.0997,-125.55078 c 13.2109,-6.66039 18.6233,-22.69633 12.1503,-36 -2.5876,-5.28743 -6.8629,-9.56085 -12.1503,-12.14844 L 1821.6191,96.957031 c -7.425,-4.89375 -14.3437,-6.749414 -20.0918,-5.90039 z"/>
-                </g>
-            </svg>
-        `;
+        // Create SVG using DOM methods instead of innerHTML for security
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'jw-svg-icon jw-svg-icon-forward');
+        svg.setAttribute('viewBox', '0 0 1080 1080');
+        svg.setAttribute('focusable', 'false');
+        svg.style.width = '24px';
+        svg.style.height = '24px';
+        
+        // Create the main group with transform
+        const mainGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        mainGroup.setAttribute('transform', 'translate(-1052.3457,87.44336)');
+        
+        // Create the inner group with transform
+        const innerGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        innerGroup.setAttribute('transform', 'translate(1434.3945,-88.34375)');
+        
+        // Create path for "1" in "10"
+        const path1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path1.setAttribute('style', 'fill:currentColor;fill-rule:nonzero;stroke:none;');
+        path1.setAttribute('d', 'm 257.87305,596.64453 c -6.3189,-0.60103 -12.71382,1.60585 -17.34766,6.25586 l -58.5,58.5 30.59961,30.60156 21.59961,-21.60156 v 229.5 l 43.20117,0.45117 V 618.20117 c 0.0215,-8.75286 -5.2427,-16.65336 -13.32812,-20.00586 -2.02136,-0.83812 -4.11831,-1.35043 -6.22461,-1.55078 z');
+        
+        // Create path for "0" in "10"
+        const path0 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path0.setAttribute('style', 'fill:currentColor;fill-rule:nonzero;stroke:none;');
+        path0.setAttribute('d', 'm 429.52539,596.15039 c -32.92103,1.36426 -62.90715,19.323 -79.65039,47.70117 -38.70038,64.05862 -38.70038,144.29099 0,208.34961 16.74324,28.37817 46.72936,46.33495 79.65039,47.69922 32.92105,-1.36427 62.90715,-19.32105 79.65039,-47.69922 38.7004,-64.05863 38.7004,-144.29099 0,-208.34961 -16.74324,-28.37817 -46.72934,-46.33691 -79.65039,-47.70117 z m 0,43.20117 c 35.1,0 64.79883,49.49922 64.79883,108.44922 0,58.95 -29.24883,108.45117 -64.79883,108.45117 -35.1,0 -64.80078,-49.50117 -64.80078,-108.45117 0,-58.95 29.70078,-108.44922 64.80078,-108.44922 z');
+        
+        // Create path for the forward arrow
+        const pathArrow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        pathArrow.setAttribute('style', 'fill:currentColor;fill-rule:nonzero;stroke:none;');
+        pathArrow.setAttribute('d', 'm 1801.5273,91.056641 c -9.58,1.415039 -15.9082,10.343749 -15.9082,25.249999 v 86.84961 h -585.4492 c -12.1031,0.17874 -21.8721,9.94772 -22.0508,22.05078 v 563.84961 c 0.162,11.8615 9.7382,21.43741 21.5997,21.59961 h 282.1503 V 723.80664 H 1264.9688 V 290.00781 h 520.6503 v 86.84961 c 0,23.85 16.2,32.39961 36,19.34961 l 188.0997,-125.55078 c 13.2109,-6.66039 18.6233,-22.69633 12.1503,-36 -2.5876,-5.28743 -6.8629,-9.56085 -12.1503,-12.14844 L 1821.6191,96.957031 c -7.425,-4.89375 -14.3437,-6.749414 -20.0918,-5.90039 z');
+        
+        // Assemble the SVG structure
+        innerGroup.appendChild(path1);
+        innerGroup.appendChild(path0);
+        mainGroup.appendChild(innerGroup);
+        mainGroup.appendChild(pathArrow);
+        svg.appendChild(mainGroup);
+        
+        return svg;
     }
     
     function createOverlayControls() {
