@@ -11,7 +11,14 @@ A Firefox extension that enhances LiveBarn's video player with professional play
 
 ## Installation
 
-### Method 1: Temporary Installation (Development)
+### Method 1: Install from Firefox Add-ons (Recommended)
+Install directly from the official Firefox Add-ons catalog:
+
+**[Install LiveBarn Enhanced Player](https://addons.mozilla.org/en-US/firefox/addon/livebarn-enhanced-player/)**
+
+This is the easiest and most secure installation method. The extension will automatically update when new versions are released.
+
+### Method 2: Temporary Installation (Development)
 1. Download or clone this repository
 2. Open Firefox and navigate to `about:debugging`
 3. Click "This Firefox" in the sidebar
@@ -19,10 +26,10 @@ A Firefox extension that enhances LiveBarn's video player with professional play
 5. Select the `manifest.json` file from the extension folder
 6. The extension will be active until you restart Firefox
 
-### Method 2: Permanent Installation
+### Method 3: Manual Installation (Advanced Users)
 1. Download the repository as a ZIP file
 2. Extract to a permanent location on your computer
-3. Follow Method 1 steps, but the extension will remain installed
+3. Follow Method 2 steps, but the extension will remain installed
 4. Note: You'll need to reload it if you restart Firefox
 
 ## Usage
@@ -31,12 +38,12 @@ Once installed, the extension automatically activates when you visit any LiveBar
 
 ### Speed Control
 - Located to the left of the play button
-- Click to open dropdown menu with speed options
+- Click to cycle through speed options
 - Current speed is displayed (e.g., "1x", "2x")
-- Select any speed from 0.5x to 4x
+- Available speeds: 0.5x, 0.75x, 1x, 1.25x, 1.5x, 2x, 4x
 
 ### Forward Button
-- Located between the next track button and audio controls
+- Located between the speed control and play button
 - Click to jump forward 10 seconds
 - Matches the design of LiveBarn's existing rewind button
 
@@ -46,6 +53,7 @@ Once installed, the extension automatically activates when you visit any LiveBar
 - `manifest.json` - Extension configuration and permissions
 - `content.js` - Main functionality and DOM manipulation
 - `styles.css` - Custom styling to match LiveBarn's player theme
+- Icon files - SVG icons for the extension
 
 ### Browser Compatibility
 - **Firefox**: Full support (tested)
@@ -73,7 +81,7 @@ The extension uses content scripts to:
 
 ### Controls Not Appearing
 - LiveBarn may have updated their player structure
-- The extension waits up to 30 seconds for the player to load
+- The extension detects and integrates with controls automatically
 - Try reloading the extension in `about:debugging`
 
 ### Speed Changes Not Working
@@ -103,7 +111,6 @@ The extension is structured to easily add new controls:
 ## Limitations
 
 - Only works on LiveBarn.com domains
-- Requires manual installation (not in Firefox Add-ons store)
 - May need updates if LiveBarn changes their player structure
 - Speed control effectiveness depends on video source and browser capabilities
 
@@ -133,6 +140,11 @@ Feel free to:
 - Submit improvements
 - Fork for personal modifications
 
+## Official Links
+
+- **Firefox Add-ons Page**: https://addons.mozilla.org/en-US/firefox/addon/livebarn-enhanced-player/
+- **Source Code**: Available in this repository
+
 ## Version History
 
 ### v1.0
@@ -140,3 +152,4 @@ Feel free to:
 - Variable speed playback (0.5x - 4x)
 - Forward 10 seconds button
 - Native UI integration
+- Available on Firefox Add-ons store
