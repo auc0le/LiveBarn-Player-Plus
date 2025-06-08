@@ -7,9 +7,42 @@ set OUTPUT_FILE=%EXTENSION_NAME%-v%VERSION%.xpi
 :: Remove existing package if it exists
 if exist "%OUTPUT_FILE%" del "%OUTPUT_FILE%"
 
-:: Create ZIP file with all necessary files
+:: Check if all required files exist
+echo Checking for required files...
+if not exist "manifest.json" (
+    echo ERROR: manifest.json not found!
+    pause
+    exit /b 1
+)
+if not exist "content.js" (
+    echo ERROR: content.js not found!
+    pause
+    exit /b 1
+)
+if not exist "styles.css" (
+    echo ERROR: styles.css not found!
+    pause
+    exit /b 1
+)
+if not exist "icon16.svg" (
+    echo ERROR: icon16.svg not found!
+    pause
+    exit /b 1
+)
+if not exist "icon48.svg" (
+    echo ERROR: icon48.svg not found!
+    pause
+    exit /b 1
+)
+if not exist "icon.svg" (
+    echo ERROR: icon.svg not found!
+    pause
+    exit /b 1
+)
+
+:: Create ZIP file with all necessary files including icons
 echo Creating package...
-powershell -Command "Compress-Archive -Path 'manifest.json','content.js','styles.css' -DestinationPath '%EXTENSION_NAME%-temp.zip' -Force"
+powershell -Command "Compress-Archive -Path 'manifest.json','content.js','styles.css','icon16.svg','icon48.svg','icon.svg' -DestinationPath '%EXTENSION_NAME%-temp.zip' -Force"
 
 :: Rename to XPI
 ren "%EXTENSION_NAME%-temp.zip" "%OUTPUT_FILE%"
@@ -17,6 +50,14 @@ ren "%EXTENSION_NAME%-temp.zip" "%OUTPUT_FILE%"
 echo.
 echo ✓ Extension packaged successfully!
 echo Package: %OUTPUT_FILE%
+echo.
+echo Files included:
+echo - manifest.json
+echo - content.js
+echo - styles.css
+echo - icon16.svg
+echo - icon48.svg
+echo - icon.svg
 echo.
 echo INSTALLATION OPTIONS:
 echo.
