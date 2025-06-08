@@ -1,0 +1,146 @@
+/* LiveBarn Enhanced Player Styles */
+
+/* Speed Control */
+.livebarn-speed-control {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #fff;
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.livebarn-speed-control:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.livebarn-speed-display {
+    min-width: 24px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.livebarn-speed-dropdown {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 4px;
+    padding: 4px 0;
+    margin-bottom: 8px;
+    min-width: 60px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.livebarn-speed-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+.livebarn-speed-option {
+    padding: 8px 12px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 13px;
+    color: #fff;
+    transition: background-color 0.2s ease;
+}
+
+.livebarn-speed-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.livebarn-speed-option.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+
+/* Forward Button */
+.livebarn-forward-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px;
+    margin: 0 2px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+}
+
+.livebarn-forward-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.livebarn-forward-btn:active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.livebarn-forward-icon {
+    font-size: 16px;
+    line-height: 1;
+    display: inline-block;
+}
+
+/* Make sure our controls inherit the video player's styling */
+.video-js .livebarn-speed-control,
+.vjs-control-bar .livebarn-speed-control {
+    font-family: inherit;
+}
+
+.video-js .livebarn-forward-btn,
+.vjs-control-bar .livebarn-forward-btn {
+    font-family: inherit;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .livebarn-speed-control {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+    
+    .livebarn-forward-btn {
+        min-width: 36px;
+        height: 36px;
+        padding: 6px;
+    }
+    
+    .livebarn-forward-icon {
+        font-size: 14px;
+    }
+}
+
+/* Dark theme compatibility */
+.dark .livebarn-speed-control,
+.dark .livebarn-forward-btn {
+    color: #fff;
+}
+
+/* Alternative selectors for different player versions */
+[class*="player"] .livebarn-speed-control,
+[class*="player"] .livebarn-forward-btn {
+    color: inherit;
+}
+
+/* Ensure proper z-index for dropdown */
+.livebarn-speed-dropdown {
+    z-index: 9999 !important;
+}
